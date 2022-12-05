@@ -1,3 +1,5 @@
+
+
 #include<iostream>
 #include<windows.h>
 using namespace std;
@@ -127,53 +129,101 @@ class insatal_bus{
 				return location_to ,location_from;
 			}
 			
-						
-void Tline(){
 
-			
-			int angleLT =201,angleRT=187,line=205;
-			
-	cout<<"\n\n\n\t\t\t\t\t"<<(char)angleLT<<(char)line<<(char)line<<(char)line<<(char)line<<(char)line<<(char)line<<(char)line<<(char)line<<(char)line<<(char)line<<(char)line<<(char)line<<(char)line<<(char)line<<(char)line<<(char)line<<(char)line<<(char)line<<(char)line<<(char)line<<(char)line<<(char)line<<(char)line<<(char)line<<(char)line<<(char)line<<(char)line<<(char)line<<(char)line<<(char)line<<(char)line<<(char)line<<(char)line<<(char)angleRT<<endl;
-
-		}
-void Cline(){
-
-			
-			int angleLB =204,angleRB=185,line=205;
-			
-	cout<<"\t\t\t\t\t"<<(char)angleLB<<(char)line<<(char)line<<(char)line<<(char)line<<(char)line<<(char)line<<(char)line<<(char)line<<(char)line<<(char)line<<(char)line<<(char)line<<(char)line<<(char)line<<(char)line<<(char)line<<(char)line<<(char)line<<(char)line<<(char)line<<(char)line<<(char)line<<(char)line<<(char)line<<(char)line<<(char)line<<(char)line<<(char)line<<(char)line<<(char)line<<(char)line<<(char)line<<(char)line<<(char)angleRB<<endl;
-
-		}	
-void Bline(){
-				SetConsoleCP(437);
-			SetConsoleOutputCP(437);
-			
-			int angleLB =200,angleRB=188,line=205;
-			
-	cout<<"\t\t\t\t\t"<<(char)angleLB<<(char)line<<(char)line<<(char)line<<(char)line<<(char)line<<(char)line<<(char)line<<(char)line<<(char)line<<(char)line<<(char)line<<(char)line<<(char)line<<(char)line<<(char)line<<(char)line<<(char)line<<(char)line<<(char)line<<(char)line<<(char)line<<(char)line<<(char)line<<(char)line<<(char)line<<(char)line<<(char)line<<(char)line<<(char)line<<(char)line<<(char)line<<(char)line<<(char)line<<(char)angleRB<<endl;
-
-		}
 		
-void print_Busses(){
-//option_choice::Bus_Quantity;
 		
-}	
+		
 			
+};
+
+class Book_Ticket{
+	protected:
+		string CUS_name;
+		int CUS_number[11];
+		string Class;
+		double departure;
+		string location_to,location_from;
+		
+	    public:
+	    	
+	    	void set_CUSNAME(){
+	    		
+	    		 cout<<"CUS Name: ";
+	    		 cin>>CUS_name;
+			}
+			string get_CUSNAME(){
+				return CUS_name;
+			}
+			
+			void set_CUSNUMBER(){
+	    		 
+	    		 cout<<"Mobile Number: ";
+	    		 cin>>CUS_number;
+			}
+			int get_CUSNUMBER(){
+				return CUS_number;
+			}
+			
+			
+			void set_BUSCLASS(){
+	    		
+	    		 cout<<"Class: ";
+	    		 cin>>Class;
+			}
+			string get_BUSCLASS(){
+				return Class;
+			}
+			
+			void set_DEPARTURE(){
+	    		
+	    		 cout<<"Departure Time: ";
+	    		 cin>>departure;
+			}
+			double get_DEPARTURE(){
+				return departure;
+			}
+			
+		void set_LOCATION(){
+			
+	    		 cout<<"Traveling From: ";
+	    		 cin>>location_from;
+	    		 cout<<"Traveling To: ";
+	    		 cin>>location_to;
+			}
+			string get_LOCATION(){
+				return location_to ,location_from;
+			}
+			
+
+		
+		
 		
 			
 };
 
 
-class option_choice:virtual public insatal_bus{
+class option_choice:virtual public insatal_bus,public Starting{
 	protected:
 	int  choi;
 	int Bus_Quantity;
-//		ofstream File("new.txt",ios::app);
-
 	public:
-	void select_option(){
-//		do{
 		
+	void install_bus(){
+	
+	     set_BUSNAME();
+		set_BUSNUMBER();
+		set_BUSCLASS();
+		set_DEPARTURE();
+		set_LOCATION();
+			system("cls");
+			options();
+	}
+
+
+	
+	void select_option(){
+
+	
 		cout<<"Enter your Choice: ";
 		cin>>choi;
 		
@@ -184,14 +234,7 @@ class option_choice:virtual public insatal_bus{
 			for(int i=1;i<=Bus_Quantity;i++){
 				
 			cout<<"\nBus "<<i<<endl;
-		set_BUSNAME();
-//		file<<set_BUSNAME();
-//		file.close();
-		set_BUSNUMBER();
-		set_BUSCLASS();
-		set_DEPARTURE();
-		set_LOCATION();	
-		
+            install_bus();
 		}
 				select_option();
 		case 2:
@@ -224,8 +267,6 @@ int main(){
 	bus1.select_option();
 	
 }
-
-
 
 
 
